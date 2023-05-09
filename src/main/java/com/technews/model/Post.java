@@ -2,8 +2,6 @@ package com.technews.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
-import org.hibernate.annotations.Tables;
-
 
 import javax.persistence.*;
 import java.io.Serializable;

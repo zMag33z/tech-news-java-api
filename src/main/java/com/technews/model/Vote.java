@@ -26,28 +26,6 @@ public class Vote implements Serializable {
         this.postId = postId;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Vote vote = (Vote) o;
-        return Objects.equals(id, vote.id) && Objects.equals(userId, vote.userId) && Objects.equals(postId, vote.postId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, userId, postId);
-    }
-
-    @Override
-    public String toString() {
-        return "Vote{" +
-                "id=" + id +
-                ", userId=" + userId +
-                ", postId=" + postId +
-                '}';
-    }
-
     public Integer getId() {
         return id;
     }
@@ -70,5 +48,27 @@ public class Vote implements Serializable {
 
     public void setPostId(Integer postId) {
         this.postId = postId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vote vote = (Vote) o;
+        return Objects.equals(id, vote.id) && Objects.equals(userId, vote.userId) && Objects.equals(postId, vote.postId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, userId, postId);
+    }
+
+    @Override
+    public String toString() {
+        return "Vote{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", postId=" + postId +
+                '}';
     }
 }

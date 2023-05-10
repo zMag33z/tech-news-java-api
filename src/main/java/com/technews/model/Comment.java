@@ -9,7 +9,7 @@ import java.util.Objects;
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "comment")
-public class Comment  implements Serializable {
+public class Comment implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -26,29 +26,6 @@ public class Comment  implements Serializable {
         this.commentText = commentText;
         this.userId = userId;
         this.postId = postId;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Comment comment = (Comment) o;
-        return Objects.equals(id, comment.id) && Objects.equals(commentText, comment.commentText) && Objects.equals(userId, comment.userId) && Objects.equals(postId, comment.postId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, commentText, userId, postId);
-    }
-
-    @Override
-    public String toString() {
-        return "Comment{" +
-                "id=" + id +
-                ", commentText='" + commentText + '\'' +
-                ", userId=" + userId +
-                ", postId=" + postId +
-                '}';
     }
 
     public Integer getId() {
@@ -81,5 +58,28 @@ public class Comment  implements Serializable {
 
     public void setPostId(Integer postId) {
         this.postId = postId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Comment comment = (Comment) o;
+        return Objects.equals(id, comment.id) && Objects.equals(commentText, comment.commentText) && Objects.equals(userId, comment.userId) && Objects.equals(postId, comment.postId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, commentText, userId, postId);
+    }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", commentText='" + commentText + '\'' +
+                ", userId=" + userId +
+                ", postId=" + postId +
+                '}';
     }
 }

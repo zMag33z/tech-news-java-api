@@ -19,7 +19,7 @@ public class Post implements Serializable {
     private String title;
     private String postUrl;
     @Transient
-    private String userName;
+    private String username;
     @Transient
     private int voteCount;
     private Integer userId;
@@ -34,44 +34,16 @@ public class Post implements Serializable {
     @OneToMany(mappedBy = "postId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Comment> comments;
 
-
     public Post(){
 
     }
+
     public Post(Integer id, String title, String postUrl, int voteCount, Integer userId) {
         this.id = id;
         this.title = title;
         this.postUrl = postUrl;
         this.voteCount = voteCount;
         this.userId = userId;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Post post = (Post) o;
-        return voteCount == post.voteCount && Objects.equals(id, post.id) && Objects.equals(title, post.title) && Objects.equals(postUrl, post.postUrl) && Objects.equals(userName, post.userName) && Objects.equals(userId, post.userId) && Objects.equals(postedAt, post.postedAt) && Objects.equals(updatedAt, post.updatedAt) && Objects.equals(comments, post.comments);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, title, postUrl, userName, voteCount, userId, postedAt, updatedAt, comments);
-    }
-
-    @Override
-    public String toString() {
-        return "Post{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", postUrl='" + postUrl + '\'' +
-                ", userName='" + userName + '\'' +
-                ", voteCount=" + voteCount +
-                ", userId=" + userId +
-                ", postedAt=" + postedAt +
-                ", updatedAt=" + updatedAt +
-                ", comments=" + comments +
-                '}';
     }
 
     public Integer getId() {
@@ -98,12 +70,12 @@ public class Post implements Serializable {
         this.postUrl = postUrl;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public int getVoteCount() {
@@ -144,5 +116,33 @@ public class Post implements Serializable {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Post post = (Post) o;
+        return voteCount == post.voteCount && Objects.equals(id, post.id) && Objects.equals(title, post.title) && Objects.equals(postUrl, post.postUrl) && Objects.equals(username, post.username) && Objects.equals(userId, post.userId) && Objects.equals(postedAt, post.postedAt) && Objects.equals(updatedAt, post.updatedAt) && Objects.equals(comments, post.comments);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, postUrl, username, voteCount, userId, postedAt, updatedAt, comments);
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", postUrl='" + postUrl + '\'' +
+                ", username='" + username + '\'' +
+                ", voteCount=" + voteCount +
+                ", userId=" + userId +
+                ", postedAt=" + postedAt +
+                ", updatedAt=" + updatedAt +
+                ", comments=" + comments +
+                '}';
     }
 }

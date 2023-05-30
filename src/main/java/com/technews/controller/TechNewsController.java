@@ -1,3 +1,4 @@
+/*ready for push to Heroku*/
 package com.technews.controller;
 
 import com.technews.model.Comment;
